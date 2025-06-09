@@ -19,15 +19,24 @@
                 else
                 {
                     @task.Title
+
+                    <!-- ======= النموذج الجديد لتعديل العنوان ======= -->
+                    <form method="post" asp-action="EditTask" style="display:inline; margin-left:10px;">
+                        <input type="hidden" name="id" value="@task.Id" />
+                        <input type="text" name="newTitle" value="@task.Title" />
+                        <button type="submit">تعديل</button>
+                    </form>
+
+                    <!-- نموذج التعليم كمكتملة -->
                     <form method="post" asp-action="CompleteTask" style="display:inline;">
                         <input type="hidden" name="id" value="@task.Id" />
                         <button type="submit">اكتملت</button>
                     </form>
-
-                }
+                  }
             </li>
         }
     </ul>
+ 
 
     <form method="post" asp-action="AddTask">
         <input type="text" name="title" placeholder="أضف مهمة جديدة" />
